@@ -222,9 +222,17 @@
                 </executions>
                 <configuration>
                     <mainClass>org.neo4j.community.console.Console</mainClass>
-                    <!--arguments>
-                      <argument>argument1</argument>
-                    </arguments-->
+                    <arguments>
+                      <!-- first argument - port
+                      <argument>8080</argument>
+                       -->
+                      <!-- second argument - path to the database
+                      <argument>//c:/your/path/here</argument>
+                       -->
+                      <!-- third argument argument - is this read/write access
+                      <argument>expose</argument>
+                       -->
+                    </arguments>
                     <systemProperties>
                       <systemProperty>
                         <key>file.encoding</key>

@@ -30,7 +30,10 @@ public class Console
     {
         System.setProperty("file.encoding","UTF-8");
         int port = (args.length>0) ? Integer.parseInt(args[0]): getPort();
-        final Console console = Console.sandbox();
+        String path = (args.length > 1) ? args[1] : null;
+        boolean expose = (args.length > 2) ? Boolean.parseBoolean(args[2]) : false;
+        final Console console = (path == null) ? Console.sandbox()
+            : new Console(new DatabaseInfo(embeddedGraphDatabase(path, expose), expose));
         console.start(port);
         console.join();
     }
